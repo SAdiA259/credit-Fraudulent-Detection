@@ -30,34 +30,44 @@ The data set is very imbalanced and SMOTE (Synthetic Monitory Over Sampling Tech
 4. Evaluation: comparing the actual and predicted output.
 
 One Hot Encoding
+
 One hot encoding is used for categorical data. In our case 0 - Non Fraudulent, 1- Fraudulent. Some algorithms can work with label data directly, while others need data transformation (converting to numerical form) before applying them to algorithms.we applied one hot coding to our classes(categories) for this purpose.
 
 Feature Scaling
+
 Minmax scaler is used to scale the features, the properties of normal standard distribution with mean=0 and standard deviation=1. We used the standardized trained features and applied them to the model.
+
 Learning rate
+
 Learning rate is a hyper-parameter that controls how much we are adjusting the weights of our network with respect the loss gradient. The lower the value, the slower we travel along the downward slope. Learning rate of 0.01 is used to optimize the cost function in the model.
 
 Cost Function
+
 Here we define the structure of LR in inference, in Deep Neural Network. The cost equation for LR is as below:
 s(z) =  1 / 1+ e-z
 In this function we define W(weight) and b(bias) for LR and we use softmax to get a clear vision of probability of belonging the data to different classes. The goal is to reduce the cost in Gradient Descent. Using learning rate=0.001, AdamOptimizer is used as an optimizer, and optimizer.minimize(cost) is used to minimize the cost associated with this algorithm.
 
 Activation Function
+
 The Sigmoid Function is mostly used when implementing Logistic Regression but since we are making Deep Neural Network, ReLu seems to be a better activation function for hidden layers and it was our choice. The output of the regression is calculated as:
 Y= θ0 + θ1x1 + θ1x2
 To get the output values as [0,1],sigmoid function is applied.
  
 Network architecture
+
 Deep neural network is used with logistic regression model, with Number of hidden layers= 4 and ultimately output with 21 features.
 
 Batch
+
 Batch processing is used when dealing with large amount of data. Dividing data intro
 batches and run them in each epoch. In this experiment we implemented batching with the size of 100 to get better performance of the model.
 
 Epoch
+
 An epoch is one full training cycle. After every sample in the data is seen it starts from the beginning of data set and it is the next epoch now. At the end of each epoch batch updates itself and this step is repeated until the number of epochs is finished. Number of epochs chose for the experiment is 27000 epochs to increase the model’s performance.
 
 Evaluation Metrics:
+
 Accuracy     Batch    Epoch    N.of layer      Learning rate
 0.99         100       27000       5                 0.001
 Precision: 0.997
